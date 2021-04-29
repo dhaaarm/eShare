@@ -12,9 +12,9 @@ let storage = multer.diskStorage({
     } ,
 });
 
-let upload = multer({ storage, limits:{ fileSize: 1000000 * 100 }, }).single('myfile'); //100mb
+let upload = multer({ storage, limits:{ fileSize: 1000000 * 100 }, }).single("myfile"); //100mb
 
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
     upload(req, res, async (err) => {
       if (err) {
         return res.status(500).send({ error: err.message });
@@ -49,7 +49,7 @@ router.post('/send', async (req, res) => {
     sendMail({
       from: emailFrom,
       to: emailTo,
-      subject: 'inShare file sharing',
+      subject: 'eShare File Sharing',
       text: `${emailFrom} shared a file with you.`,
       html: require('../services/emailTemplate')({
                 emailFrom, 
